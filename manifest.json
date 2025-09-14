@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Tour Comparison Tool",
+  "version": "1.0",
+  "description": "Compare tours and activities from GetYourGuide and Viator in a unified sidebar",
+  
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  
+  "host_permissions": [
+    "https://www.getyourguide.com/*",
+    "https://www.viator.com/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.getyourguide.com/*",
+        "https://www.viator.com/*"
+      ],
+      "js": ["content.js"],
+      "css": ["sidebar.css"]
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tour Comparison Tool"
+  },
+  
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
